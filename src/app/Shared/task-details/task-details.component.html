@@ -1,0 +1,59 @@
+
+<div>
+  <header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body fixed-top">
+    <div class="container-fluid">
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Jumbotron -->
+  <div class="p-5 text-center bg-body-tertiary">
+    <h1 class="mb-3">{{task.title}} Details</h1>
+  </div>
+  <!-- Jumbotron -->
+</header>
+<div>
+  <div class="p-5 text-center">
+    <h4 class="mb-3">Description</h4>
+    <p class="text-center">
+      {{task.description}}
+      </p>
+      <p class="text-center">
+    Role  :   {{role.name }} / Assigne to : {{user.username}}
+        </p>
+  </div>
+  <div>
+    <div class="btn-group p-5 text-center" role="group" aria-label="Basic outlined example">
+        <button  type="button" class="btn btn-dark" *ngIf="CheckClosed()"
+                 (click)="CloseTask(this.taskId)">Close Task</button>
+      <button type="button"
+              (click)="openDialogEmp()"
+              class="btn btn-info" *ngIf="CheckFoReAssignee()">ReAssign Task</button>
+              <button type="button"
+              (click)="StartTask(this.taskId)"
+              class="btn btn-success" *ngIf="CheckStarted()">Start Task</button>
+              <button type="button"
+              (click)="ResolveTask(this.taskId)"
+              class="btn btn-success" *ngIf="CheckResolved()">Resolve Task</button>
+              <button type="button"
+              (click)="InProgressTask(this.taskId)"
+              class="btn btn-success" *ngIf="CheckInProgress()">InProgrees Task</button>
+    </div>
+</div>
+</div>
+
+</div>

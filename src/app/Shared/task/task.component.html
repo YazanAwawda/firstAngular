@@ -1,0 +1,51 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body fixed-top">
+    <div class="container-fluid">
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Jumbotron -->
+  <div class="p-5 text-center bg-body-tertiary">
+    <h1 class="mb-3">Welcom Admin!</h1>
+    <h4 class="mb-3">Tasks List</h4>
+  </div>
+  <!-- Jumbotron -->
+</header>
+<br>
+<div class="example-button-row">
+  <div class="example-flex-container">
+    <div class="example-button-container">
+      <button mat-fab extended (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+        Create Task
+      </button>
+    </div>
+<div>
+  <br>
+  <div class="list-group"  *ngFor="let task of  tasks"    [routerLink]="['/task-details/',task.id  ]">
+  <div  class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{task.title}}</h5>
+      <small>   <span  [class]="onColorTaskStatus(enumToString(TaskStatus ,task.taskStatus))">
+        {{enumToString(TaskStatus ,task.taskStatus)}}
+      </span></small>
+    </div>
+    <p class="mb-1">{{task.description}}</p>
+  </div>
+</div>
+</div>
+

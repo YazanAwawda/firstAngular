@@ -1,0 +1,58 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body fixed-top">
+    <div class="container-fluid">
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Jumbotron -->
+  <div class="p-5 text-center bg-body-tertiary">
+    <h1 class="mb-3">Registration</h1>
+  </div>
+  <!-- Jumbotron -->
+</header>
+
+<form #UserForm [formGroup]="FormReg" (ngSubmit) = "onSubmit()" style="width:50%; margin-left: 350px; margin-top:50px;">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" formControlName="email"    class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">Username</label>
+    <input type="text" formControlName="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" formControlName="passwordHash" class="form-control" id="exampleInputPassword1">
+  </div>
+  <select class="form-select"
+  aria-label="Default select example"
+   formControlName="roleId"
+   [(ngModel)]="roleId"
+   (change)="onRoleChange($event)">
+    <option selected>Select Role</option>
+    <option *ngFor="let role of Roles"
+    [value]="role.id">{{role.name}}</option>
+  </select>
+  <br><br>
+  <div class="text-center">
+    <p>Back to <a [routerLink]="['/login']">Login</a></p>
+  </div>
+  <br><br>
+
+  <button type="submit"  class="btn btn-primary">Submit</button>
+</form>

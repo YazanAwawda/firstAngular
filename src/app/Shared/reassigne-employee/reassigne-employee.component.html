@@ -1,0 +1,32 @@
+
+
+<mat-dialog-content>
+
+  <form #EmployeeForm [formGroup]="EmpForm" (ngSubmit) = " onReAssigneEmployee()">
+
+
+    <label  class="form-label">Assignee Task</label>
+
+    <select class="form-select"
+    aria-label="Default select example"
+     formControlName="userId"
+     [(ngModel)]="userId"
+     (change)="onUserChange($event)">
+      <option selected>Select Employee</option>
+      <option *ngFor="let user of Users"
+      [value]="user.id">{{user.username}}</option>
+    </select>
+    <br><br><br><br>    <br><br><br><br>
+    <br><br>
+
+
+
+    <button type="submit"  class="btn btn-primary">Assigne</button>
+
+
+  </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="close()">Close</button>
+  </mat-dialog-actions>

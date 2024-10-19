@@ -1,0 +1,37 @@
+
+<mat-dialog-content>
+
+<form #UserForm [formGroup]="TaskForm" (ngSubmit) = "onCreateTask()">
+
+  <div class="mb-3">
+    <label for="exampleInputTitle" class="form-label">Task Title</label>
+    <input type="text" formControlName="title"    class="form-control" id="exampleInputTitle">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputDescription" class="form-label">Task Description</label>
+    <input type="text" formControlName="description" class="form-control" id="exampleInputDescription">
+  </div>
+
+  <label  class="form-label">Assignee Task</label>
+
+  <select class="form-select"
+  aria-label="Default select example"
+   formControlName="userId"
+   [(ngModel)]="userId"
+   (change)="onUserChange($event)">
+    <option selected>Select Employee</option>
+    <option *ngFor="let user of Users"
+    [value]="user.id">{{user.username}}</option>
+  </select>
+  <br><br><br><br>
+
+
+  <button type="submit"  class="btn btn-primary">Create</button>
+
+
+</form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

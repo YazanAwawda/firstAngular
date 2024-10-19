@@ -1,0 +1,43 @@
+<header>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body fixed-top">
+    <div class="container-fluid">
+      <button
+        data-mdb-collapse-init
+        class="navbar-toggler"
+        type="button"
+        data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Jumbotron -->
+  <div class="p-5 text-center bg-body-tertiary">
+    <h1 class="mb-3">Login</h1>
+  </div>
+  <!-- Jumbotron -->
+</header>
+
+<form #UserForm [formGroup]="userFormGroup" (ngSubmit) = "onLogin()"  style="width:50%; margin-left: 365px; margin-top:150px;">
+
+  <div class="mb-3">
+    <label for="exampleInputUsername" class="form-label">Username</label>
+    <input type="email" formControlName="username" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" formControlName="passwordHash" class="form-control" id="exampleInputPassword1">
+  </div>
+ <!-- Register buttons -->
+ <div class="text-center">
+  <p>Not a member? <a [routerLink]="['/register']">Register</a></p>
+</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
